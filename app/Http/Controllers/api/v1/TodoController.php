@@ -53,6 +53,8 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
+        $todo = Todo::findOrFail($todo->id);
+
         return new TodoResource($todo);
     }
 
@@ -61,6 +63,8 @@ class TodoController extends Controller
      */
     public function update(TodoRequest $request, Todo $todo)
     {
+        $todo = Todo::findOrFail($todo->id);
+
         $todo->update($request->validated());
 
         return new TodoResource($todo);
@@ -71,6 +75,8 @@ class TodoController extends Controller
      */
     public function destroy(Todo $todo)
     {
+        $todo = Todo::findOrFail($todo->id);
+
         $todo->delete();
 
         return response()->json(['message' => 'Todo deleted successfully.'], 200);
