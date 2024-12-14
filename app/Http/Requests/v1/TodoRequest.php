@@ -24,7 +24,7 @@ class TodoRequest extends FormRequest
         return [
             'title' => 'required|string',
             'details' => 'string|nullable',
-            'status' => 'required|in:pending,completed',
+            'status' => 'required|in:completed,in progress,not started',
             'user_id' => 'required|exists:users,id',
         ];
     }
