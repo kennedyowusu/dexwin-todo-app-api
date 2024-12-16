@@ -1,0 +1,288 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "1e502adb-7c1c-42b5-9eae-c86cdad41cfc",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Todos",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/todos",
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "completed",
+                                    "description": "Filter todos by status.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "project",
+                                    "description": "Search todos by title or details.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sortBy",
+                                    "value": "created_at",
+                                    "description": "Sort todos by a field.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "desc",
+                                    "description": "Sort order. Must be one of asc or desc.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/todos?status=completed&search=project&sortBy=created_at&order=desc"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"title\": \"New Todo\",\n      \"details\": \"Details about the todo\",\n      \"status\": \"completed\",\n      \"user\": {\n        \"id\": 1,\n        \"name\": \"Kennedy Owusu\",\n        \"email\": \"kennedy@example.com\"\n      },\n      \"created_at\": \"2024-12-15T12:00:00Z\",\n      \"updated_at\": \"2024-12-15T12:00:00Z\",\n      \"deleted_at\": null\n    }\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/todos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/todos"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Finish project\",\"details\":\"Complete API implementation\",\"status\":\"in progress\",\"user_id\":1}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Finish project\",\n    \"details\": \"Complete API implementation\",\n    \"status\": \"in progress\",\n    \"user\": {\n      \"id\": 1,\n      \"name\": \"Kennedy Owusu\",\n      \"email\": \"kennedy@example.com\"\n    },\n    \"created_at\": \"2024-12-15T12:00:00Z\",\n    \"updated_at\": \"2024-12-15T12:00:00Z\",\n    \"deleted_at\": null\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/todos\/:todo_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/todos\/:todo_id",
+                            "variable": [
+                                {
+                                    "id": "todo_id",
+                                    "key": "todo_id",
+                                    "value": "2",
+                                    "description": "The ID of the todo."
+                                },
+                                {
+                                    "id": "todo",
+                                    "key": "todo",
+                                    "value": "1",
+                                    "description": "The ID of the todo."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Finish project\",\n    \"details\": \"Complete API implementation\",\n    \"status\": \"in progress\",\n    \"user\": {\n      \"id\": 1,\n      \"name\": \"Kennedy Owusu\",\n      \"email\": \"kennedy@example.com\"\n    },\n    \"created_at\": \"2024-12-15T12:00:00Z\",\n    \"updated_at\": \"2024-12-15T12:00:00Z\",\n    \"deleted_at\": null\n  }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Todo not found.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/todos\/:todo_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/todos\/:todo_id",
+                            "variable": [
+                                {
+                                    "id": "todo_id",
+                                    "key": "todo_id",
+                                    "value": "2",
+                                    "description": "The ID of the todo."
+                                },
+                                {
+                                    "id": "todo",
+                                    "key": "todo",
+                                    "value": "1",
+                                    "description": "The ID of the todo."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Update title\",\"details\":\"error\",\"status\":\"completed\",\"user_id\":\"quidem\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Update title\",\n    \"details\": \"Complete API implementation\",\n    \"status\": \"completed\",\n    \"user\": {\n      \"id\": 1,\n      \"name\": \"Kennedy Owusu\",\n      \"email\": \"kennedy@example.com\"\n    },\n    \"created_at\": \"2024-12-15T12:00:00Z\",\n    \"updated_at\": \"2024-12-15T12:00:00Z\",\n    \"deleted_at\": null\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/todos\/:todo_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/todos\/:todo_id",
+                            "variable": [
+                                {
+                                    "id": "todo_id",
+                                    "key": "todo_id",
+                                    "value": "2",
+                                    "description": "The ID of the todo."
+                                },
+                                {
+                                    "id": "todo",
+                                    "key": "todo",
+                                    "value": "1",
+                                    "description": "The ID of the todo."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Todo deleted successfully.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Todo not found.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
