@@ -81,4 +81,33 @@ class TodoControllerTest extends TestCase
         $response->assertStatus(200);
         $this->assertSoftDeleted('todos', ['id' => $todo->id]);
     }
+
+    /** @test */
+    public function it_returns_the_correct_response_structure()
+    {
+        $user = User::factory()->create();
+        Todo::factory(3)->create(['user_id' => $user->id]);
+
+        $response = $this->getJson('/api/v1/todos');
+
+        $response->assertStatus(200)
+                ->assertJsonStructure([
+                    'data' => [
+                        '*' => [
+                            'id',
+                            'title',
+                            'details',
+                            'status',
+                            'user' => [
+                                'id',
+                                'name',
+                                'email',
+                            ],
+                            'created_at',
+                            'updated_at',
+                            'deleted_at',
+                        ],
+                    ],
+                ]);
+    }
 }
