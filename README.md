@@ -1,66 +1,150 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Dexwin Todo App API
 
-## About Laravel
+A Laravel-based CRUD API for managing todos. This project includes full API documentation, end-to-end tests, and deployment.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- CRUD functionality for todos.
+- Filter, search, and sort todos by status, title, or details.
+- Pagination support for listing todos.
+- Hosted API documentation and live API endpoint.
+- Comprehensive tests with high code coverage.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Hosted Links
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **API Endpoint**: [https://dexwin.kennedyowusu.com/api/v1/todos](https://dexwin.kennedyowusu.com/api/v1/todos)
+- **API Documentation**: [https://dexwin.kennedyowusu.com/public/docs/](https://dexwin.kennedyowusu.com/public/docs/)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Setup Instructions
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Prerequisites
 
-### Premium Partners
+Before setting up the project, ensure you have the following installed:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- PHP 8.1 or higher
+- Composer
+- A database (MySQL, SQLite, PostgreSQL, etc.)
+- Node.js (optional for frontend tools or additional assets)
+
+---
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/kennedyowusu/dexwin-todo-app-api.git
+   cd dexwin-todo-app-api
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   composer install
+   ```
+
+3. **Set up environment variables**:
+   Copy the `.env.example` file to `.env` and update the necessary database credentials:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Generate the application key**:
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Run database migrations and seed the database**:
+   ```bash
+   php artisan migrate --seed
+   ```
+
+6. **Serve the application**:
+   ```bash
+   php artisan serve
+   ```
+
+By default, the application will run at `http://localhost:8000`.
+
+---
+
+## Usage
+
+### Available Endpoints
+
+| Method | Endpoint                   | Description                          |
+|--------|----------------------------|--------------------------------------|
+| GET    | `/api/v1/todos`            | List all todos                      |
+| POST   | `/api/v1/todos`            | Create a new todo                   |
+| GET    | `/api/v1/todos/{id}`       | Show a specific todo                |
+| PUT    | `/api/v1/todos/{id}`       | Update a specific todo              |
+| DELETE | `/api/v1/todos/{id}`       | Delete a specific todo              |
+
+Refer to the **API Documentation** for detailed descriptions, request parameters, and example responses:
+[API Documentation](https://dexwin.kennedyowusu.com/public/docs/)
+
+---
+
+## Testing
+
+This project includes a comprehensive test suite to ensure functionality. To run tests:
+
+1. Ensure your `.env` file is set up for testing with a SQLite database:
+   ```env
+   DB_CONNECTION=mysql
+   DB_DATABASE=:memory:
+   ```
+
+2. Run the test suite:
+   ```bash
+   php artisan test
+   ```
+
+3. Generate a coverage report (optional, requires Xdebug):
+   ```bash
+   php artisan test --coverage
+   ```
+
+---
+
+## API Documentation
+
+The API documentation is automatically generated using Scribe and hosted online.
+
+- **Hosted Documentation**: [https://dexwin.kennedyowusu.com/public/docs/](https://dexwin.kennedyowusu.com/public/docs/)
+
+To regenerate the documentation locally:
+```bash
+php artisan scribe:generate
+```
+
+---
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Contributions are welcome! If you encounter any issues or have ideas for improvement:
 
-## Code of Conduct
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Submit a pull request with a detailed explanation.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License. Feel free to use, modify, and distribute this project as per the license terms.
+
+---
+
+**Author**: Kennedy Owusu
+GitHub: [kennedyowusu](https://github.com/kennedyowusu)
+API Documentation: [dexwin.kennedyowusu.com](https://dexwin.kennedyowusu.com/public/docs/)
+
