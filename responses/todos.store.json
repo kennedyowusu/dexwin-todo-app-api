@@ -1,0 +1,16 @@
+{
+ "data": {
+     "id": 3,
+     "title": "New Todo",
+     "details": "Details about the new todo",
+     "status": "not started",
+     "user": {
+         "id": 1,
+         "name": "Kennedy Owusu",
+         "email": "kenowusu@example.com"
+     },
+     "created_at": "2024-01-03T00:00:00.000000Z",
+     "updated_at": "2024-01-03T00:00:00.000000Z",
+     "deleted_at": null
+ }
+}
